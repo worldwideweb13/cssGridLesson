@@ -1,0 +1,306 @@
+/* 基本的なリセット */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Noto Sans JP", sans-serif;
+  line-height: 1.6;
+  transition: opacity 0.5s ease-in-out;
+  background-color: #fff; /* 背景色を白に設定 */
+  color: #333; /* テキストカラーをダークグレーに設定 */
+}
+
+/* コンテナのスタイル: CSS Gridを利用 */
+.container {
+  display: grid; /* グリッドレイアウトを使用 */
+  grid-template-areas: /* 各セクションをグリッドエリアで定義 */
+    "header"
+    "main-visual"
+    "main"
+    "footer";
+  grid-template-columns: 1fr; /* 1列のグリッド */
+  grid-template-rows: auto auto 1fr auto; /* 各行のサイズを定義 */
+  row-gap: 40px; /* 行間のギャップ */
+  max-width: 1200px; /* 最大幅を設定 */
+  margin: 0 auto; /* 中央揃え */
+  padding: 20px; /* 内側のパディング */
+}
+
+/* ヘッダー */
+.header {
+  grid-area: header; /* グリッドエリア名を設定 */
+  display: flex; /* フレックスレイアウトを使用 */
+  justify-content: space-between; /* 要素を左右に配置 */
+  align-items: center; /* 要素を垂直方向に中央揃え */
+  border-bottom: 1px solid #e0e0e0; /* 下線を引く */
+  padding-bottom: 10px; /* 下部のパディング */
+}
+
+.header-left {
+  display: flex; /* フレックスレイアウトを使用 */
+  align-items: center; /* 垂直方向に中央揃え */
+}
+
+.header-left h1 {
+  font-size: 1.5rem; /* フォントサイズを設定 */
+  font-weight: bold; /* フォントを太字に設定 */
+  margin-right: 20px; /* 右のマージン */
+}
+
+.social-icons {
+  display: flex; /* フレックスレイアウトを使用 */
+  gap: 16px; /* アイコン間のギャップ */
+}
+
+.social-icons a {
+  color: #333; /* アイコンの色 */
+  font-size: 1.5rem; /* アイコンのサイズ */
+  transition: color 0.3s; /* 色の変化にトランジションを設定 */
+}
+
+.social-icons a:hover {
+  color: #555; /* ホバー時の色 */
+}
+
+.header-right nav ul {
+  list-style: none; /* リストのスタイルをなしに */
+  display: flex; /* フレックスレイアウトを使用 */
+  gap: 20px; /* リスト項目間のギャップ */
+}
+
+.header-right ul li a {
+  color: #333; /* リンクの色 */
+  text-decoration: none; /* 下線なし */
+  font-size: 1rem; /* フォントサイズ */
+  transition: text-decoration 0.3s; /* テキストデコレーションのトランジション */
+}
+
+.header-right ul li a:hover {
+  text-decoration: underline; /* ホバー時の下線 */
+}
+
+/* メインビジュアル */
+.main-visual {
+  grid-area: main-visual; /* グリッドエリア名を設定 */
+  position: relative; /* 相対位置を設定 */
+  height: 480px; /* 高さを設定 */
+  overflow: hidden; /* オーバーフローを隠す */
+}
+
+.main-visual img {
+  width: 100%; /* 幅を100%に */
+  height: auto; /* 高さを自動調整 */
+  opacity: 0; /* 最初は透明 */
+  transition: opacity 2s ease-in-out; /* 透明度のトランジション */
+}
+
+.main-visual img.fade-in {
+  opacity: 1; /* フェードイン後の透明度を1に */
+}
+
+.main-visual .overlay {
+  position: absolute; /* 絶対位置を設定 */
+  top: 10%; /* 上からの位置 */
+  left: 50%; /* 左からの位置 */
+  transform: translateX(-50%); /* 中央揃え */
+  text-align: center; /* テキストを中央揃え */
+  z-index: 10; /* レイヤーの順序 */
+}
+
+.phrase {
+  font-size: 2rem; /* フォントサイズ */
+  font-weight: bold; /* 太字 */
+  color: #fff; /* テキストカラー */
+  opacity: 0; /* 透明 */
+  transition: opacity 2s ease-in-out; /* 透明度のトランジション */
+  background: linear-gradient(
+    to right,
+    #209cff,
+    #68e0cf
+  ); /* グラデーション背景 */
+  padding: 0.1rem 0.5rem; /* 内側のパディング */
+  margin-bottom: 0.5rem; /* 下部のマージン */
+}
+
+#phrase1.show,
+#phrase2.show {
+  opacity: 1; /* 表示時の透明度 */
+}
+
+/* メインコンテンツ */
+.main-content {
+  grid-area: main; /* グリッドエリア名 */
+  padding: 20px; /* 内側のパディング */
+}
+
+.main-content section {
+  margin-bottom: 20px; /* 下部のマージン */
+}
+
+.main-content h2 {
+  color: #333; /* テキストカラー */
+  margin-bottom: 10px; /* 下部のマージン */
+  border-bottom: 2px solid #e0e0e0; /* 下線 */
+  display: inline-block; /* インラインブロック */
+}
+
+/* サービスカード */
+.service-cards {
+  display: grid; /* グリッドレイアウト */
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(200px, 1fr)
+  ); /* 自動で列をフィル */
+  gap: 20px; /* カード間のギャップ */
+}
+
+.service-card {
+  background-color: #fff; /* 背景色 */
+  border-radius: 8px; /* 角を丸く */
+  padding: 20px; /* 内側のパディング */
+  text-align: center; /* テキストを中央揃え */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 影を設定 */
+}
+
+.service-card img {
+  width: 100px; /* 幅 */
+  height: 100px; /* 高さ */
+  margin-bottom: 10px; /* 下部のマージン */
+}
+
+.service-card h3 {
+  color: #333; /* テキストカラー */
+  margin-bottom: 10px; /* 下部のマージン */
+}
+
+.service-card p {
+  color: #333; /* テキストカラー */
+}
+
+/* キャリアアイテム */
+.career-items {
+  display: grid; /* グリッドレイアウト */
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(300px, 1fr)
+  ); /* 自動で列をフィル */
+  gap: 20px; /* アイテム間のギャップ */
+}
+
+.career-item {
+  display: flex; /* フレックスレイアウト */
+  gap: 20px; /* 要素間のギャップ */
+  align-items: center; /* 垂直方向に中央揃え */
+}
+
+.career-item img {
+  width: 150px; /* 幅 */
+  height: 150px; /* 高さ */
+  border-radius: 8px; /* 角を丸く */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 影 */
+}
+
+.career-item div {
+  flex: 1; /* 要素を伸縮可能に */
+}
+
+.career-item h3 {
+  color: #333; /* テキストカラー */
+  margin-bottom: 10px; /* 下部のマージン */
+}
+
+.career-item p {
+  color: #333; /* テキストカラー */
+}
+
+/* ブログエントリ */
+.blog-entries {
+  display: grid; /* グリッドレイアウト */
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(250px, 1fr)
+  ); /* 自動で列をフィル */
+  gap: 20px; /* カード間のギャップ */
+}
+
+.blog-card {
+  background-color: #fff; /* 背景色 */
+  border-radius: 8px; /* 角を丸く */
+  padding: 20px; /* 内側のパディング */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 影 */
+  display: flex; /* フレックスレイアウト */
+  align-items: center; /* 垂直方向に中央揃え */
+  overflow: hidden; /* オーバーフローを隠す */
+}
+
+.blog-card img {
+  width: 80px; /* 幅 */
+  height: 80px; /* 高さ */
+  margin-right: 20px; /* 右のマージン */
+  border-radius: 8px; /* 角を丸く */
+}
+
+.blog-card h3 {
+  color: #333; /* テキストカラー */
+  margin-bottom: 10px; /* 下部のマージン */
+  flex: 1; /* 要素を伸縮可能に */
+}
+
+.blog-card p {
+  color: #333; /* テキストカラー */
+}
+
+.blog-card .meta {
+  color: #999; /* メタデータのカラー */
+  font-size: 0.9rem; /* フォントサイズ */
+}
+
+/* フッター */
+.footer {
+  grid-area: footer; /* グリッドエリア名 */
+  background-color: #fff; /* 背景色 */
+  color: #333; /* テキストカラー */
+  text-align: center; /* テキストを中央揃え */
+  padding: 10px; /* 内側のパディング */
+  border-top: 1px solid #e0e0e0; /* 上部の線 */
+}
+
+/* レスポンシブデザイン */
+@media (max-width: 768px) {
+
+  .phrase {
+    font-size: 1.5rem; /* スマホサイズ用のフォントサイズ */
+    line-height: 1.2; /* 行の高さを調整 */
+  }
+
+  .main-visual {
+    height: 300px; /* スマホ時の高さ */
+  }
+
+  .header {
+    flex-direction: column; /* 垂直方向に要素を並べる */
+    align-items: center; /* 垂直方向に中央揃え */
+  }
+
+  .header-left,
+  .header-right {
+    width: 100%; /* フル幅に設定 */
+    justify-content: center; /* 中央揃え */
+    text-align: center; /* テキストを中央揃え */
+  }
+
+  .service-cards {
+    grid-template-columns: 1fr; /* スマホ時は1列に */
+  }
+
+  .career-items {
+    grid-template-columns: 1fr; /* スマホ時は1列に */
+  }
+
+  .blog-entries {
+    grid-template-columns: 1fr; /* スマホ時は1列に */
+  }
+}

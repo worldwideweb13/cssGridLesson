@@ -1,0 +1,377 @@
+/* リセットCSS: すべての要素のデフォルトの余白とパディングをリセットし、ボックスモデルを一貫性のあるものにします */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* 各要素のボックスモデルにpaddingとborderを含めます */
+}
+
+body {
+  font-family: "Noto Sans JP", sans-serif; /* フォントファミリーを指定 */
+  line-height: 1.6; /* 行の高さを設定 */
+  transition: opacity 0.5s ease-in-out; /* ページの透明度を変更するトランジションを設定 */
+  background-color: #fff; /* 背景色を白に設定 */
+  color: #333; /* テキストカラーをダークグレーに設定 */
+}
+
+/* コンテナのスタイル: CSS Gridを利用してページ全体のレイアウトを管理 */
+.container {
+  display: grid; /* グリッドレイアウトを使用 */
+  grid-template-areas: /* 各セクションをグリッドエリアで定義 */
+    "header"
+    "main-visual"
+    "main"
+    "footer";
+  grid-template-columns: 1fr; /* 1列のグリッド */
+  grid-template-rows: auto auto 1fr auto; /* 各行のサイズを自動調整 */
+  row-gap: 60px; /* 行間のギャップ */
+  max-width: 1200px; /* 最大幅を設定し、レスポンシブ対応 */
+  margin: 60px auto 0 auto; /* ヘッダーの高さを考慮してマージンを調整 */
+}
+
+/* ヘッダーのスタイル */
+.header {
+  grid-area: header; /* ヘッダーエリアを指定 */
+  position: fixed; /* ヘッダーを固定表示 */
+  top: 0; /* 画面上部に配置 */
+  left: 0; /* 画面左に配置 */
+  right: 0; /* 画面右に配置 */
+  z-index: 1000; /* 他の要素よりも上に表示 */
+  display: flex; /* フレックスボックスで子要素を管理 */
+  padding: 10px 20px; /* 内側の余白を指定 */
+  justify-content: space-between; /* 子要素を左右に配置 */
+  align-items: center; /* 垂直方向に中央揃え */
+  border-bottom: 1px solid #e0e0e0; /* 下部にボーダーを引く */
+  background-color: #fff; /* 背景色を白に設定 */
+  flex-wrap: wrap; /* 子要素が折り返し可能に */
+  width: 100%; /* 幅を100%に */
+}
+
+.header-left {
+  display: contents; /* コンテンツのみを表示 */
+  font-size: 1.5rem; /* フォントサイズを指定 */
+  font-weight: bold; /* 太字を指定 */
+  width: auto; /* 幅を自動調整 */
+  text-align: left; /* テキストを左揃え */
+}
+
+.header-right {
+  display: flex; /* フレックスボックスでナビゲーションを管理 */
+  align-items: center; /* 垂直方向に中央揃え */
+  position: relative; /* 相対位置を設定 */
+  width: 100%; /* 幅を100%に設定 */
+  justify-content: flex-end; /* ナビゲーションを右揃え */
+}
+
+.header-right nav {
+  display: flex; /* フレックスボックスを使用 */
+}
+
+.header-right ul {
+  list-style: none; /* リストスタイルをなしに */
+  display: flex; /* フレックスボックスを使用 */
+  gap: 20px; /* リスト項目間のギャップ */
+}
+
+.header-right ul li {
+  margin: 0; /* 各リスト項目の余白を0に */
+}
+
+.header-right ul li a {
+  color: #333; /* リンクの色を指定 */
+  text-decoration: none; /* 下線をなしに */
+  font-size: 1rem; /* フォントサイズを指定 */
+}
+
+.header-right ul li a:hover {
+  text-decoration: underline; /* ホバー時に下線を表示 */
+}
+
+.social-icons {
+  display: flex; /* フレックスボックスでアイコンを配置 */
+  gap: 16px; /* アイコン間のギャップ */
+}
+
+.social-icons a {
+  color: #333; /* アイコンの色を指定 */
+  font-size: 1.5rem; /* アイコンのサイズを指定 */
+}
+
+.social-icons a:hover {
+  color: #555; /* ホバー時の色を指定 */
+}
+
+/* メインビジュアル */
+.main-visual {
+  grid-area: main-visual; /* グリッドエリアを指定 */
+  width: 100%; /* 幅を100%に設定 */
+  height: 480px; /* 高さを指定 */
+  overflow: hidden; /* オーバーフローを隠す */
+  display: flex; /* フレックスボックスで子要素を配置 */
+  justify-content: center; /* 子要素を水平中央に配置 */
+  align-items: center; /* 垂直方向に中央揃え */
+  position: relative; /* 相対位置を設定 */
+}
+
+.main-visual .overlay {
+  position: absolute; /* 絶対位置を設定 */
+  top: 2%; /* 上部からの距離を指定 */
+  left: 50%; /* 左からの位置を指定 */
+  transform: translateX(-50%); /* 水平方向に中央揃え */
+  text-align: center; /* テキストを中央揃え */
+  z-index: 10; /* 重なり順序を指定 */
+}
+
+.phrase {
+  font-size: 2rem; /* フォントサイズを指定 */
+  color: #fff; /* テキストの色を白に */
+  opacity: 0; /* 初期状態は透明 */
+  transition: opacity 2s ease-in-out; /* 透明度のトランジション */
+  padding: 0.1rem 0.1rem; /* 内側の余白を指定 */
+  transform: skew(-15deg); /* テキストを斜めに変形 */
+  background-image: linear-gradient(
+    to right,
+    #209cff,
+    #68e0cf
+  ); /* グラデーション背景 */
+}
+
+#phrase1.show,
+#phrase2.show {
+  opacity: 1; /* フェードイン後の透明度 */
+}
+
+.main-visual img {
+  width: 100%; /* 画像の幅を100%に */
+  height: auto; /* 高さを自動調整 */
+  border-radius: 8px; /* 角を丸くする */
+  opacity: 0; /* 初期状態は透明 */
+  transition: opacity 2s ease-in-out; /* フェードインのトランジション */
+}
+
+.main-visual img.fade-in {
+  opacity: 1; /* フェードイン後の透明度を1に */
+}
+
+/* メインコンテンツのスタイル */
+.main-content {
+  grid-area: main; /* グリッドエリアを指定 */
+  padding: 20px; /* 内側の余白を指定 */
+}
+
+.main-content section {
+  margin-bottom: 20px; /* セクション間の余白 */
+}
+
+.main-content h2 {
+  color: #333; /* テキストの色を指定 */
+  margin-bottom: 10px; /* 下部の余白を指定 */
+  border-bottom: 2px solid #e0e0e0; /* 下線を引く */
+  display: inline-block; /* インラインブロックで配置 */
+}
+
+/* サービスカード */
+.service-cards {
+  display: flex; /* フレックスボックスで子要素を管理 */
+  flex-wrap: wrap; /* 子要素を折り返し可能に */
+  gap: 20px; /* カード間のギャップを指定 */
+  justify-content: center; /* カードを中央に配置 */
+}
+
+.service-card {
+  background-color: #fff; /* 背景色を白に設定 */
+  border-radius: 8px; /* 角を丸くする */
+  padding: 20px; /* 内側の余白を指定 */
+  flex: 1 1 calc(33% - 20px); /* フレックスアイテムのサイズを指定 */
+  max-width: calc(33% - 20px); /* 最大幅を指定 */
+  text-align: center; /* テキストを中央揃え */
+}
+
+.service-card img {
+  width: 100px; /* 画像の幅を指定 */
+  height: 100px; /* 画像の高さを指定 */
+  margin-bottom: 10px; /* 下部の余白を指定 */
+}
+
+.service-card h3 {
+  color: #333; /* テキストの色を指定 */
+  margin-bottom: 10px; /* 下部の余白を指定 */
+}
+
+.service-card p {
+  color: #333; /* テキストの色を指定 */
+}
+
+/* キャリアアイテム */
+.career-item {
+  display: flex; /* フレックスボックスで子要素を管理 */
+  flex-direction: row; /* 横方向に配置 */
+  gap: 20px; /* 要素間のギャップを指定 */
+  margin-bottom: 20px; /* 下部の余白を指定 */
+}
+
+.career-item img {
+  width: 150px; /* 画像の幅を指定 */
+  height: 150px; /* 画像の高さを指定 */
+  border-radius: 100px; /* 角を丸くする */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 影をつける */
+}
+
+.career-item div {
+  flex: 1; /* 要素を伸縮可能に */
+}
+
+.career-item h3 {
+  color: #333; /* テキストの色を指定 */
+  margin-bottom: 10px; /* 下部の余白を指定 */
+}
+
+.career-item p {
+  color: #333; /* テキストの色を指定 */
+}
+
+/* ブログエントリ */
+.blog-entries {
+  display: flex; /* フレックスボックスで子要素を管理 */
+  flex-wrap: wrap; /* 子要素を折り返し可能に */
+  gap: 20px; /* カード間のギャップを指定 */
+}
+
+.blog-card {
+  background-color: #fff; /* 背景色を白に設定 */
+  border-radius: 8px; /* 角を丸くする */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 影をつける */
+  padding: 20px; /* 内側の余白を指定 */
+  flex: 1 1 calc(50% - 20px); /* フレックスアイテムのサイズを指定 */
+  max-width: calc(50% - 20px); /* 最大幅を指定 */
+  max-height: 250px; /* 最大高さを指定 */
+  display: flex; /* フレックスボックスを使用 */
+  align-items: center; /* 垂直方向に中央揃え */
+}
+
+.blog-card img {
+  width: 80px; /* 画像の幅を指定 */
+  height: 80px; /* 画像の高さを指定 */
+  margin-right: 20px; /* 右の余白を指定 */
+  border-radius: 8px; /* 角を丸くする */
+}
+
+.blog-card h3 {
+  color: #333; /* テキストの色を指定 */
+  margin-bottom: 10px; /* 下部の余白を指定 */
+  flex: 1; /* 要素を伸縮可能に */
+}
+
+.blog-card p {
+  color: #333; /* テキストの色を指定 */
+}
+
+.blog-card .meta {
+  color: #999; /* メタ情報の色を指定 */
+  font-size: 0.9rem; /* フォントサイズを指定 */
+}
+
+/* SNSアイコン */
+.sns-icons {
+  display: flex; /* フレックスボックスでアイコンを管理 */
+  gap: 20px; /* アイコン間のギャップを指定 */
+}
+
+.sns-icons a {
+  color: #333; /* アイコンの色を指定 */
+  font-size: 2rem; /* アイコンのサイズを指定 */
+  text-decoration: none; /* テキストデコレーションをなしに */
+}
+
+.sns-icons a:hover {
+  color: #555; /* ホバー時の色を指定 */
+}
+
+/* フッターのスタイル */
+.footer {
+  grid-area: footer; /* グリッドエリアを指定 */
+  background-color: #fff; /* 背景色を白に設定 */
+  color: #333; /* テキストの色を指定 */
+  text-align: center; /* テキストを中央揃え */
+  padding: 10px; /* 内側の余白を指定 */
+  border-radius: 8px; /* 角を丸くする */
+}
+
+/* レスポンシブデザイン: 幅768px以下のデバイス用 */
+@media (max-width: 768px) {
+  .container {
+    grid-template-areas: /* スマホ用のグリッドエリアを再設定 */
+      "header"
+      "main-visual"
+      "main"
+      "footer";
+    margin: 148px auto 0 auto; /* ヘッダーの高さを考慮してマージンを調整 */
+  }
+
+  .container {
+    row-gap: 12px;
+  }
+
+  .phrase {
+    font-size: 1.3rem; /* スマホサイズ用のフォントサイズ */
+    line-height: 1.2; /* 行の高さを調整 */
+  }
+
+  .main-visual {
+    height: 212px; /* スマホ時の高さを調整 */
+  }
+
+  .header {
+    padding: 10px 20px; /* ヘッダーのパディングを小さく */
+    flex-direction: column; /* 子要素を縦に並べる */
+    align-items: center; /* 垂直方向に中央揃え */
+  }
+
+  .header-left,
+  .header-right {
+    width: 100%; /* 幅を100%に */
+    justify-content: center; /* 水平方向に中央揃え */
+    text-align: center; /* テキストを中央揃え */
+  }
+
+  .header-left {
+    font-size: 1.2rem; /* フォントサイズを小さく */
+  }
+
+  .header-right nav {
+    width: 100%; /* ナビゲーションをフル幅に */
+  }
+
+  .header-right ul {
+    flex-direction: row; /* リスト項目を横に並べる */
+    justify-content: space-around; /* 水平方向に均等配置 */
+    width: 100%; /* リストをフル幅に */
+  }
+
+  .service-cards {
+    flex-direction: column; /* カードを縦に並べる */
+  }
+
+  .service-card {
+    max-width: 100%; /* カードの最大幅をフルに */
+  }
+
+  .career-item {
+    flex-direction: column; /* 子要素を縦に並べる */
+    align-items: center; /* 中央揃え */
+    text-align: center; /* テキストを中央揃え */
+  }
+
+  .career-item img {
+    width: 100px; /* 画像の幅を小さく */
+    height: 100px; /* 画像の高さを小さく */
+  }
+
+  .blog-entries {
+    flex-direction: column; /* カードを縦に並べる */
+  }
+
+  .blog-card {
+    max-width: 100%; /* カードの最大幅をフルに */
+    max-height: 200px; /* スマホサイズでのカードの最大高さ */
+  }
+}
