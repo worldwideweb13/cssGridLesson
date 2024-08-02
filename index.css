@@ -1,0 +1,54 @@
+/* リセットCSS: すべての要素のデフォルトの余白とパディングをリセットし、ボックスモデルを一貫性のあるものにします */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* 各要素のボックスモデルにpaddingとborderを含めます */
+}
+
+body {
+  font-family: "Noto Sans JP", sans-serif; /* フォントファミリーを指定 */
+  line-height: 1.6; /* 行の高さを設定 */
+  transition: opacity 0.5s ease-in-out; /* ページの透明度を変更するトランジションを設定 */
+  background-color: #fff; /* 背景色を白に設定 */
+  color: #333; /* テキストカラーをダークグレーに設定 */
+}
+
+/* コンテナのスタイル: CSS Gridを利用してページ全体のレイアウトを管理 */
+.container {
+  display: grid; /* グリッドレイアウトを使用 */
+  grid-template-areas: /* 各セクションをグリッドエリアで定義 */
+    "header"
+    "main-visual"
+    "main-content"
+    "footer";
+  grid-template-columns: 1fr; /* 1列のグリッド */
+  grid-template-rows: auto auto 1fr auto; /* 各行のサイズを自動調整 */
+  row-gap: 60px; /* 行間のギャップ */
+  max-width: 1200px; /* 最大幅を設定し、レスポンシブ対応 */
+  /* ヘッダーの高さを考慮してマージンを調整 */
+  margin: 60px auto 0 auto;
+}
+
+/* ヘッダーのスタイル */
+.header {
+  background-color: aquamarine;
+  height: 80px;
+}
+
+/* メインビジュアルのスタイル */
+.main-visual {
+  background-color: yellowgreen;
+  height: 200px;
+}
+
+/* メインコンテンツのスタイル */
+.main-content {
+  background-color: lightcoral;
+  height: 400px;
+}
+
+/* フッターのスタイル */
+.footer {
+  background-color: lightblue;
+  height: 100px;
+}
