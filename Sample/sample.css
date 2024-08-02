@@ -46,7 +46,7 @@ body {
   width: 100%; /* 幅を100%に */
 }
 
-.header-left {
+.header-up {
   display: contents; /* コンテンツのみを表示 */
   font-size: 1.5rem; /* フォントサイズを指定 */
   font-weight: bold; /* 太字を指定 */
@@ -54,7 +54,7 @@ body {
   text-align: left; /* テキストを左揃え */
 }
 
-.header-right {
+.header-down {
   display: flex; /* フレックスボックスでナビゲーションを管理 */
   align-items: center; /* 垂直方向に中央揃え */
   position: relative; /* 相対位置を設定 */
@@ -62,27 +62,27 @@ body {
   justify-content: flex-end; /* ナビゲーションを右揃え */
 }
 
-.header-right nav {
+.header-down nav {
   display: flex; /* フレックスボックスを使用 */
 }
 
-.header-right ul {
+.header-down ul {
   list-style: none; /* リストスタイルをなしに */
   display: flex; /* フレックスボックスを使用 */
   gap: 20px; /* リスト項目間のギャップ */
 }
 
-.header-right ul li {
+.header-down ul li {
   margin: 0; /* 各リスト項目の余白を0に */
 }
 
-.header-right ul li a {
+.header-down ul li a {
   color: #333; /* リンクの色を指定 */
   text-decoration: none; /* 下線をなしに */
   font-size: 1rem; /* フォントサイズを指定 */
 }
 
-.header-right ul li a:hover {
+.header-down ul li a:hover {
   text-decoration: underline; /* ホバー時に下線を表示 */
 }
 
@@ -326,22 +326,22 @@ body {
     align-items: center; /* 垂直方向に中央揃え */
   }
 
-  .header-left,
-  .header-right {
+  .header-up,
+  .header-down {
     width: 100%; /* 幅を100%に */
     justify-content: center; /* 水平方向に中央揃え */
     text-align: center; /* テキストを中央揃え */
   }
 
-  .header-left {
+  .header-up {
     font-size: 1.2rem; /* フォントサイズを小さく */
   }
 
-  .header-right nav {
+  .header-down nav {
     width: 100%; /* ナビゲーションをフル幅に */
   }
 
-  .header-right ul {
+  .header-down ul {
     flex-direction: row; /* リスト項目を横に並べる */
     justify-content: space-around; /* 水平方向に均等配置 */
     width: 100%; /* リストをフル幅に */
