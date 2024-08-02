@@ -160,6 +160,38 @@ body {
   height: 400px;
 }
 
+/* サービスカード */
+.service-cards {
+  display: flex; /* フレックスボックスで子要素を管理 */
+  flex-wrap: wrap; /* 子要素を折り返し可能に */
+  gap: 20px; /* カード間のギャップを指定 */
+  justify-content: center; /* カードを中央に配置 */
+}
+
+.service-card {
+  background-color: #fff; /* 背景色を白に設定 */
+  border-radius: 8px; /* 角を丸くする */
+  padding: 20px; /* 内側の余白を指定 */
+  flex: 1 1 calc(33% - 20px); /* フレックスアイテムのサイズを指定 */
+  max-width: calc(33% - 20px); /* 最大幅を指定 */
+  text-align: center; /* テキストを中央揃え */
+}
+
+.service-card img {
+  width: 100px; /* 画像の幅を指定 */
+  height: 100px; /* 画像の高さを指定 */
+  margin-bottom: 10px; /* 下部の余白を指定 */
+}
+
+.service-card h3 {
+  color: #333; /* テキストの色を指定 */
+  margin-bottom: 10px; /* 下部の余白を指定 */
+}
+
+.service-card p {
+  color: #333; /* テキストの色を指定 */
+}
+
 /* フッターのスタイル */
 .footer {
   grid-area: footer; /* グリッドエリアを指定 */
