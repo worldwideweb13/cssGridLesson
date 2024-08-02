@@ -279,3 +279,83 @@ body {
   padding: 10px; /* 内側の余白を指定 */
   border-radius: 8px; /* 角を丸くする */
 }
+
+/* レスポンシブデザイン: 幅768px以下のデバイス用 */
+@media (max-width: 768px) {
+  .container {
+    grid-template-areas: /* スマホ用のグリッドエリアを再設定 */
+      "header"
+      "main-visual"
+      "main-content"
+      "footer";
+    margin: 148px auto 0 auto; /* ヘッダーの高さを考慮してマージンを調整 */
+  }
+
+  .container {
+    row-gap: 12px;
+  }
+
+  .phrase {
+    font-size: 1.3rem; /* スマホサイズ用のフォントサイズ */
+    line-height: 1.2; /* 行の高さを調整 */
+  }
+
+  .main-visual {
+    height: 212px; /* スマホ時の高さを調整 */
+  }
+
+  .header {
+    padding: 10px 20px; /* ヘッダーのパディングを小さく */
+    flex-direction: column; /* 子要素を縦に並べる */
+    align-items: center; /* 垂直方向に中央揃え */
+  }
+
+  .header-up,
+  .header-down {
+    width: 100%; /* 幅を100%に */
+    justify-content: center; /* 水平方向に中央揃え */
+    text-align: center; /* テキストを中央揃え */
+  }
+
+  .header-up {
+    font-size: 1.2rem; /* フォントサイズを小さく */
+  }
+
+  .header-down nav {
+    width: 100%; /* ナビゲーションをフル幅に */
+  }
+
+  .header-down ul {
+    flex-direction: row; /* リスト項目を横に並べる */
+    justify-content: space-around; /* 水平方向に均等配置 */
+    width: 100%; /* リストをフル幅に */
+  }
+
+  .service-cards {
+    flex-direction: column; /* カードを縦に並べる */
+  }
+
+  .service-card {
+    max-width: 100%; /* カードの最大幅をフルに */
+  }
+
+  .career-item {
+    flex-direction: column; /* 子要素を縦に並べる */
+    align-items: center; /* 中央揃え */
+    text-align: center; /* テキストを中央揃え */
+  }
+
+  .career-item img {
+    width: 100px; /* 画像の幅を小さく */
+    height: 100px; /* 画像の高さを小さく */
+  }
+
+  .blog-entries {
+    flex-direction: column; /* カードを縦に並べる */
+  }
+
+  .blog-card {
+    max-width: 100%; /* カードの最大幅をフルに */
+    max-height: 200px; /* スマホサイズでのカードの最大高さ */
+  }
+}

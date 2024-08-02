@@ -19,6 +19,30 @@ document.addEventListener("DOMContentLoaded", () => {
   }, 5000); // フレーズの表示後に画像をフェードイン
 
   // ナビゲーションリンクのスクロール設定
+  const headerHeight = document.querySelector(".header").offsetHeight; // ヘッダーの高さを取得
+  const links = document.querySelectorAll("nav a");
+  links.forEach((link) => {
+    link.addEventListener("click", (e) => {
+      e.preventDefault();
+      const targetId = link.getAttribute("href").substring(1);
+      const targetSection = document.getElementById(targetId);
+
+      if (targetSection) {
+        document.body.style.opacity = 0; // ボディを一旦透明に
+
+        setTimeout(() => {
+          // ターゲットへスクロール
+          // targetSection.scrollIntoView({ behavior: "auto" });
+          window.scrollTo({
+            top: targetSection.offsetTop - headerHeight, // スクロール位置を調整
+            behavior: "smooth", // スムーズスクロール
+          });
+
+          document.body.style.opacity = 1; // スムーズに表示
+        }, 500);
+      }
+    });
+  });
 
   // RSSフィードの取得
   fetchRSSFeed();
