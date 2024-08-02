@@ -19,13 +19,14 @@ body {
   grid-template-areas: /* 各セクションをグリッドエリアで定義 */
     "header"
     "main-visual"
-    "main"
+    "main-content"
     "footer";
   grid-template-columns: 1fr; /* 1列のグリッド */
   grid-template-rows: auto auto 1fr auto; /* 各行のサイズを自動調整 */
   row-gap: 60px; /* 行間のギャップ */
   max-width: 1200px; /* 最大幅を設定し、レスポンシブ対応 */
-  margin: 60px auto 0 auto; /* ヘッダーの高さを考慮してマージンを調整 */
+  /* ヘッダーの高さを考慮してマージンを調整 */
+  margin: 60px auto 0 auto;
 }
 
 /* ヘッダーのスタイル */
@@ -154,17 +155,17 @@ body {
 
 /* メインコンテンツのスタイル */
 .main-content {
-  grid-area: main; /* グリッドエリアを指定 */
-  padding: 20px; /* 内側の余白を指定 */
+  grid-area: main-content; /* グリッドエリアを指定 */
+  padding: 0 20px; /* 内側の左右余白を指定 */
 }
 
 .main-content section {
-  margin-bottom: 20px; /* セクション間の余白 */
+  margin-bottom: 40px; /* セクション間の余白 */
 }
 
 .main-content h2 {
   color: #333; /* テキストの色を指定 */
-  margin-bottom: 10px; /* 下部の余白を指定 */
+  margin-bottom: 40px; /* 下部の余白を指定 */
   border-bottom: 2px solid #e0e0e0; /* 下線を引く */
   display: inline-block; /* インラインブロックで配置 */
 }
@@ -180,7 +181,6 @@ body {
 .service-card {
   background-color: #fff; /* 背景色を白に設定 */
   border-radius: 8px; /* 角を丸くする */
-  padding: 20px; /* 内側の余白を指定 */
   flex: 1 1 calc(33% - 20px); /* フレックスアイテムのサイズを指定 */
   max-width: calc(33% - 20px); /* 最大幅を指定 */
   text-align: center; /* テキストを中央揃え */
