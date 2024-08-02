@@ -156,8 +156,18 @@ body {
 /* メインコンテンツのスタイル */
 .main-content {
   grid-area: main-content; /* グリッドエリアを指定 */
-  background-color: lightcoral;
-  height: 400px;
+  padding: 0 20px; /* 内側の左右余白を指定 */
+}
+
+.main-content section {
+  margin-bottom: 40px; /* セクション間の余白 */
+}
+
+.main-content h2 {
+  color: #333; /* テキストの色を指定 */
+  margin-bottom: 40px; /* 下部の余白を指定 */
+  border-bottom: 2px solid #e0e0e0; /* 下線を引く */
+  display: inline-block; /* インラインブロックで配置 */
 }
 
 /* サービスカード */
@@ -171,7 +181,6 @@ body {
 .service-card {
   background-color: #fff; /* 背景色を白に設定 */
   border-radius: 8px; /* 角を丸くする */
-  padding: 20px; /* 内側の余白を指定 */
   flex: 1 1 calc(33% - 20px); /* フレックスアイテムのサイズを指定 */
   max-width: calc(33% - 20px); /* 最大幅を指定 */
   text-align: center; /* テキストを中央揃え */
@@ -190,6 +199,41 @@ body {
 
 .service-card p {
   color: #333; /* テキストの色を指定 */
+}
+
+/* キャリアアイテム */
+.career-item {
+  display: flex; /* フレックスボックスで子要素を管理 */
+  flex-direction: row; /* 横方向に配置 */
+  gap: 20px; /* 要素間のギャップを指定 */
+  margin-bottom: 20px; /* 下部の余白を指定 */
+}
+
+.career-item img {
+  width: 150px; /* 画像の幅を指定 */
+  height: 150px; /* 画像の高さを指定 */
+  border-radius: 100px; /* 角を丸くする */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 影をつける */
+}
+
+.career-item div {
+  flex: 1; /* 要素を伸縮可能に */
+}
+
+.career-item h3 {
+  color: #333; /* テキストの色を指定 */
+  margin-bottom: 10px; /* 下部の余白を指定 */
+}
+
+.career-item p {
+  color: #333; /* テキストの色を指定 */
+}
+
+/* ブログエントリ */
+.blog-entries {
+  display: flex; /* フレックスボックスで子要素を管理 */
+  flex-wrap: wrap; /* 子要素を折り返し可能に */
+  gap: 20px; /* カード間のギャップを指定 */
 }
 
 /* フッターのスタイル */
