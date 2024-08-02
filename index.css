@@ -236,6 +236,40 @@ body {
   gap: 20px; /* カード間のギャップを指定 */
 }
 
+.blog-card {
+  background-color: #fff; /* 背景色を白に設定 */
+  border-radius: 8px; /* 角を丸くする */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 影をつける */
+  padding: 20px; /* 内側の余白を指定 */
+  flex: 1 1 calc(50% - 20px); /* フレックスアイテムのサイズを指定 */
+  max-width: calc(50% - 20px); /* 最大幅を指定 */
+  max-height: 250px; /* 最大高さを指定 */
+  display: flex; /* フレックスボックスを使用 */
+  align-items: center; /* 垂直方向に中央揃え */
+}
+
+.blog-card img {
+  width: 80px; /* 画像の幅を指定 */
+  height: 80px; /* 画像の高さを指定 */
+  margin-right: 20px; /* 右の余白を指定 */
+  border-radius: 8px; /* 角を丸くする */
+}
+
+.blog-card h3 {
+  color: #333; /* テキストの色を指定 */
+  margin-bottom: 10px; /* 下部の余白を指定 */
+  flex: 1; /* 要素を伸縮可能に */
+}
+
+.blog-card p {
+  color: #333; /* テキストの色を指定 */
+}
+
+.blog-card .meta {
+  color: #999; /* メタ情報の色を指定 */
+  font-size: 0.9rem; /* フォントサイズを指定 */
+}
+
 /* フッターのスタイル */
 .footer {
   grid-area: footer; /* グリッドエリアを指定 */
