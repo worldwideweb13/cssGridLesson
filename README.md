@@ -4,7 +4,7 @@ Css Grid Layout を使って作成したサンプルページです。
 
 # CSS Grid Layout を使ったホームページ制作講義
 
-![講義用ソース写真](https://github.com/user-attachments/assets/d08b204c-4793-4be6-be8b-b32b720fe01d)
+![講義用ソース写真]()
 
 この講義では、CSS Grid Layout を使用してレスポンシブなウェブページを作成する方法を学びます。講義は解説、ハンズオン、質疑応答の 3 つのセクションに分かれています。
 
