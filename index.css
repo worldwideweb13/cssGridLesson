@@ -104,8 +104,53 @@ body {
 /* メインビジュアルのスタイル */
 .main-visual {
   grid-area: main-visual; /* グリッドエリアを指定 */
-  background-color: yellowgreen;
-  height: 200px;
+  width: 100%; /* 幅を100%に設定 */
+  height: 480px; /* 高さを指定 */
+  overflow: hidden; /* オーバーフローを隠す */
+  display: flex; /* フレックスボックスで子要素を配置 */
+  justify-content: center; /* 子要素を水平中央に配置 */
+  align-items: center; /* 垂直方向に中央揃え */
+  position: relative; /* 相対位置を設定 */
+}
+
+.main-visual .overlay {
+  position: absolute; /* 絶対位置を設定 */
+  top: 2%; /* 上部からの距離を指定 */
+  left: 50%; /* 左からの位置を指定 */
+  transform: translateX(-50%); /* 水平方向に中央揃え */
+  text-align: center; /* テキストを中央揃え */
+  z-index: 10; /* 重なり順序を指定 */
+}
+
+.phrase {
+  font-size: 2rem; /* フォントサイズを指定 */
+  color: #fff; /* テキストの色を白に */
+  opacity: 0; /* 初期状態は透明 */
+  transition: opacity 2s ease-in-out; /* 透明度のトランジション */
+  padding: 0.1rem 0.1rem; /* 内側の余白を指定 */
+  transform: skew(-15deg); /* テキストを斜めに変形 */
+  background-image: linear-gradient(
+    to right,
+    #209cff,
+    #68e0cf
+  ); /* グラデーション背景 */
+}
+
+#phrase1.show,
+#phrase2.show {
+  opacity: 1; /* フェードイン後の透明度 */
+}
+
+.main-visual img {
+  width: 100%; /* 画像の幅を100%に */
+  height: auto; /* 高さを自動調整 */
+  border-radius: 8px; /* 角を丸くする */
+  opacity: 0; /* 初期状態は透明 */
+  transition: opacity 2s ease-in-out; /* フェードインのトランジション */
+}
+
+.main-visual img.fade-in {
+  opacity: 1; /* フェードイン後の透明度を1に */
 }
 
 /* メインコンテンツのスタイル */
